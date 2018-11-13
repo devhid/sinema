@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# vscode
+.vscode
+
+# do not include secrets
+project/settings/dev.py
