@@ -1,46 +1,64 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../static/css/cirrus.min.css">
-        <link rel="stylesheet" type="text/css" href="../static/css/home.css">
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <script src="../static/js/jquery-3.3.1.min.js"></script>
+        {% include 'base_head.html' %}
+        {% include 'home_head.html' %}
+        {% include 'nav_head.html' %}
+
+        <!-- Import Slick Styles -->
+        <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick-theme.css">
+        <link rel="stylesheet" type="test/css" href="../static/css/normalize.css">
     </head>
 
     <body>
-        <div class="header header-fixed unselectable header-animated header-dark">
-            <div class="header-brand">
-                <div class="nav-item no-hover">
-                    <h6 id="nav-logo" class="title">Sinema</h6>
+        {% include 'nav.html' %}
+        <br><br><br><br>
+
+        <section id="welcome-back" class="center">
+            <h1 class="">Welcome back, Mikey.{#{user.name}#} </h1>
+        </section>
+        <br><br><br>
+
+        <section id="currently-watching">
+            <div>
+                <h4>Currently Watching</h4>
+            </div>
+            <div class="slider center">
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie1">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie2">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie3">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie4">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie5">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie6">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie7">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie8">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie9">
+                </div>
+                <div>
+                    <img src="http://placehold.it/232x130?text=Movie10">
                 </div>
             </div>
-            <div class="header-nav" id="header-menu">
-                <div class="nav-left">
-                    <div class="nav-item text-center">
-                        <a href="">Home</a>
-                    </div>
-
-                    <div class="nav-item text-center">
-                        <a href="">Recently Added</a>
-                    </div>
-
-                    <div class="nav-item text-center">
-                        <a href="">New Releases</a>
-                    </div>
-                </div>
-                <div class="nav-right">
-                    <div class="nav-item has-sub" id="dropdown">
-                        <a class="nav-dropdown-link"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a>
-                        <ul id="user-menu" class="dropdown-menu" role="menu">
-                            <li role="menu-item"><a href="#">Profile</a></li>
-                            <li role="menu-item"><a href="#">Likes</a></li>
-                            <li role="menu-item"><a href="#">Settings</a></li>
-                            <li class="dropdown-menu-divider"></li>
-                            <li role="menu-item"><a style="color: #db0000;" href="#">Log Out</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
+            
+        <!-- Import Slick JS -->
+        <script src="../static/lib/slick/slick.min.js"></script>
         <script src="../static/js/home.js"></script>
     </body>
 </html>

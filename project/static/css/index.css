@@ -1,0 +1,62 @@
+#index-logo {
+    color: #db0000;
+    letter-spacing: 0.75rem;
+    font-family: "Bebas Neue";
+    font-size: 9.5rem;
+    /* text-shadow: 0.45rem 0.35rem 0.5rem black; */
+    text-shadow: 0 1px 0 black,
+    0 2px 0 darkred,
+    0 3px 0 darkred,
+    0 4px 0 darkred,
+    0 5px 0 darkred,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+}
+
+#site-description {
+    color: #eee;
+    font-family: Raleway;
+    font-size: 2rem;
+}
+
+#index-container {
+    padding-top: 3rem;
+}
+
+#get-started {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#log-in-container h6 {
+    color: white;
+    font-family: Raleway;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+}
+
+.btn-accent {
+    font-family: Helvetica;
+    font-size: 1.4rem;
+    background-color: red;
+    width: 20rem;
+    box-shadow: 0.45rem 0.3rem 1.3rem black;
+    letter-spacing: 0.08rem;
+    padding: 0.5rem 2rem;
+}
+
+.btn-accent:hover {
+    background-color: #db0000;
+    
+}
+
+#log-in-link {
+    color: #db0000;
+    font-weight: bold;
+    padding: 0;
+}

@@ -1,0 +1,16 @@
+/* Custom Fonts */
+@font-face {
+    font-family: "Bebas Neue";
+    src: url(../fonts/bebasneue.otf);
+}
+
+/* Background */
+body {
+    background-color: #141414;
+    font-family: Raleway;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Raleway;
+}

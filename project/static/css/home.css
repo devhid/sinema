@@ -1,31 +1,25 @@
-/* Custom Fonts */
-@font-face {
-    font-family: "Bebas Neue";
-    src: url(../fonts/bebasneue.otf);
+#welcome-back h1 {
+    font-weight: 200;
+    text-shadow: 0.3rem 0.2rem 0.3rem black;
 }
 
-/* Background */
-body {
-    background: #333;
+#currently-watching {
+    margin: auto;
+    width: 92%;
 }
 
-/* Navbar Styling */
-#nav-logo {
-    color: #db0000;
-    letter-spacing: 0.25rem;
-    font-family: "Bebas Neue";
-    font-size: 2rem;
+.slick-slide {
+    max-height: 130px;
 }
 
-.nav-left .nav-item {
-    font-size: 1rem;
+.slick-prev:before, .slick-next:before { 
+    color:red !important;
 }
 
-.nav-item {
-    font-family: "Raleway";
+.slick-prev {
+    left: -35px !important;
 }
 
-
-.nav-item a {
-    color: white;
+.slick-next {
+    right: -35px !important;
 }

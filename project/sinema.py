@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from .extensions import db
-from .views import home, signup
+from .views import home, signup, index
 
 def create_app(config_file):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -24,6 +24,7 @@ def register_blueprints(app):
     """Register Flask blueprints."""
     app.register_blueprint(home.blueprint)
     app.register_blueprint(signup.blueprint)
+    app.register_blueprint(index.blueprint)
 
 def register_errorhandlers(app):
     """Register error handlers."""
