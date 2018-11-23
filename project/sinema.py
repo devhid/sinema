@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 from .extensions import db
 from .views import home, signup, index
-from .models import movie
+from .models import movie, actors, producers
 
 def create_app(config_file):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -47,6 +47,8 @@ def register_shellcontext(app):
         """Shell context objects."""
         return {
             'db': db,
-            'Movie': movie}
+            'Movie': movie,
+            'Actors': actors,
+            'Producers':producers}
 
     app.shell_context_processor(shell_context)

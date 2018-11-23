@@ -28,6 +28,6 @@ class Movie(db.Model):
                         movie_id={}, movie_name={}, synopsis={}, \
                         rating={}, minutes_duration={}, seconds_duration={}, \
                         release_date={}, maturity_rating={} \
-                    )'.format(self.movie_id, self.movie_name, self.synopsis, self.rating, 
-                            self.minutes_duration, self.minutes_duration, self.seconds_duration, 
+                    )'.format(self.movie_id, self.movie_name, self.synopsis, self.rating,
+                            self.minutes_duration, self.minutes_duration, self.seconds_duration,
                             self.release_date, self.maturity_rating)
