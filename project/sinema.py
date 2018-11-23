@@ -2,6 +2,7 @@ from flask import Flask, render_template
 
 from .extensions import db
 from .views import home, signup, index
+from .models import movie
 
 def create_app(config_file):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -21,7 +22,7 @@ def register_extensions(app):
     """Register Flask extensions."""
     with app.app_context():
         db.init_app(app)
-        #db.create_all()
+        db.create_all()
 
 def register_blueprints(app):
     """Register Flask blueprints."""
@@ -39,3 +40,13 @@ def register_errorhandlers(app):
     for errcode in [401, 404, 500]:
         app.errorhandler(errcode)(render_error)
     return None
+
+def register_shellcontext(app):
+    """Register shell context objects."""
+    def shell_context():
+        """Shell context objects."""
+        return {
+            'db': db,
+            'Movie': movie}
+
+    app.shell_context_processor(shell_context)

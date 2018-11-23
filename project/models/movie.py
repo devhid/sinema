@@ -14,13 +14,13 @@ MaturityRating = enum.Enum(
 )
 
 class Movie(db.Model):
-    movie_id = db.Column(db.Integer, primary_key=True, nullable=False)
-    movie_name = db.Column(db.String(), unique=True, nullable=False)
-    synopsis = db.Column(db.String())
+    movie_id = db.Column(db.Integer(), primary_key=True, nullable=False)
+    movie_name = db.Column(db.String(255), unique=True, nullable=False)
+    synopsis = db.Column(db.String(255))
     rating = db.Column(db.Float(2,1), db.CheckConstraint('rating=0.0 OR (rating >= 1.0 AND rating <= 5.0)'), default=0.0)
     minutes_duration = db.Column(db.Integer, db.CheckConstraint('minutes_duration >= 0'))
     seconds_duration = db.Column(db.Integer, db.CheckConstraint('seconds_duration >= 0'))
-    release_date = db.Column(db.Date)
+    release_date = db.Column(db.Date())
     maturity_rating = db.Column(db.Enum(MaturityRating), default='NR')
 
     def __repr__(self):
