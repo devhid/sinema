@@ -1,3 +1,4 @@
+#!/Users/mgulati/Documents/vscode-projects/sinema/venv/bin/python3
 from project.sinema import create_app
 
 if __name__ == "__main__":

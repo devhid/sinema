@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+
 from .extensions import db
 from .views import home, signup, index
 
@@ -18,7 +19,9 @@ def create_app(config_file):
 
 def register_extensions(app):
     """Register Flask extensions."""
-    db.init_app(app)
+    with app.app_context():
+        db.init_app(app)
+        #db.create_all()
 
 def register_blueprints(app):
     """Register Flask blueprints."""
