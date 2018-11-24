@@ -1,5 +1,14 @@
 from ..extensions import db
 
+"""
+CREATE TABLE Person(
+    Id INTEGER,
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    PRIMARY KEY(Id)
+);
+"""
+
 class Person(db.Model):
     person_id = db.Column(db.Integer(), primary_key=True, nullable=False)
     first_name = db.Column(db.String(128), nullable=False)

@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 from .extensions import db
 from .views import home, signup, index
-from .models import movie, actors, producers
+from .models import movie, person, actors, producers, directors, genres
 
 def create_app(config_file):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.

@@ -26,14 +26,24 @@ Genre = enum.Enum(
     ]
 )
 
+"""
+CREATE TABLE Genres(
+    Genre ENUM('Action', 'Anime', 'Children & Family', 'Classics', 'Comedies', 'Cult', 'Documentaries',
+    'Dramas', 'Faith & Spirituality', 'Horror', 'Independent', 'International', 'LBGTQ', 'Music & Musicals',
+    'Romance', 'Sci-Fi & Fantasty', 'Sports', 'Stand-up Comedy', 'Thrillers'), 
+    MovieId INTEGER,
+
+    PRIMARY KEY(Genre, MovieId),
+    FOREIGN KEY(MovieId) REFERENCES Movie(Id)
+);
+"""
+
 class Genres(db.Model):
-        movie_id_genre = db.Column(db.Integer, primary_key=True, nullable=False, db.ForeignKey('movie.movie_id'))
+        movie_id = db.Column(db.Integer, db.ForeignKey('movie.movie_id'), primary_key=True, nullable=False)
         genre = db.Column(db.Enum(Genre), primary_key=True, nullable=False)
 
         def __repr__(self):
-            return 'Movie( \
-                        movie_id_genre={}, genre={} \
-                    )'.format(self.movie_id_genre, maturity_rating)
+            return 'Movie(movie_id={}, genre={})'.format(self.movie_id_genre, maturity_rating)
 
 
 
