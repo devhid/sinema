@@ -4,6 +4,8 @@ from ..models import movie.Movie, genres.Genres, person.Person, actors.Actors
 
 def get_movies_by_name(name):
     # return Movie.search(name)
+    # TODO: Get a lot of movie data to work with for each genre and actor/director/producer relationships.
+    # TODO: Implement search indexing for this function.
 
 def get_movies_by_actor(first_name, last_name):
     persons = Person.query.filter_by(first_name=first_name, last_name=last_name).all()
