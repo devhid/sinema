@@ -1,9 +1,16 @@
 <html>
     <head>
-
+        {% include 'base_head.html' %}
+        {% include 'nav_head.html' %}
+        {% include '404_head.html' %}
     </head>
 
     <body>
-        <h1>404</h1>
+        {% include 'nav.html'%}
+        <br><br><br>
+        <div id="error-404" class="content text-center">
+            <h1 style="font-size: 13.5rem;">404</h1>
+            <h5>Oops!<br> The page you are trying to visit does not exist.</h5>
+        </div>
     </body>
 </html>

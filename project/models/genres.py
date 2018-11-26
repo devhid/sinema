@@ -5,24 +5,21 @@ Genre = enum.Enum(
     value = 'Genre',
     names = [
         ('Action', 0),
-        ('Anime', 1),
-        ('Children and Family', 2),
-        ('Classics', 3),
-        ('Comedies', 4),
-        ('Cult', 5),
-        ('Documentaries', 6),
-        ('Dramas', 7),
-        ('Faith and Spirituality', 8),
+        ('Adventure', 1),
+        ('Biography', 2),
+        ('Comedy', 3),
+        ('Crime', 4),
+        ('Documentary', 5),
+        ('Drama', 6),
+        ('Family', 7),
+        ('Fantasy', 8),
         ('Horror', 9),
-        ('Independent', 10),
-        ('International', 11),
-        ('LBGTQ', 12),
-        ('Music and Musicals', 13),
-        ('Romance', 14),
-        ('SciFi and Fantasy', 15),
-        ('Sports', 16),
-        ('Stand-up Comedy', 17),
-        ('Thrillers', 18)
+        ('International', 10),
+        ('Music and Musicals', 11),
+        ('Romance', 12),
+        ('Sci-Fi', 13),
+        ('Sport', 14),
+        ('Thriller', 15)
     ]
 )
 
