@@ -14,3 +14,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: Raleway;
 }
+
+.page-title h1 {
+    text-shadow: 0.3rem 0.2rem 0.3rem black;
+    font-family: "Raleway";
+    text-shadow: 0.3rem 0.3rem 0.1rem black;
+    padding-top: 5.5rem;
+    padding-bottom: 2rem;
+    font-size: 4rem;
+}
+
+input[type=text], .btn, [type=submit], button, select {
+    font-family: 'Raleway';
+}

@@ -5,21 +5,104 @@
         {% include 'nav_head.html' %}
 
         <!-- Import Slick Styles -->
-        <link rel="stylesheet" type="text/css" href="../static/libaries/slick/slick.css">
-        <link rel="stylesheet" type="text/css" href="../static/libaries/slick/slick-theme.css">
-        <link rel="stylesheet" type="test/css" href="../static/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/slick/slick.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/slick/slick-theme.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <!-- ../static/libaries/slick/slick.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="../static/libaries/slick/slick-theme.css">
+        <link rel="stylesheet" type="test/css" href="../static/css/normalize.css"> -->
     </head>
 
     <body>
         {% include 'nav.html' %}
-        <br><br><br><br>
 
-        <section id="welcome-back" class="center">
-            <h1 class="">Welcome back, Mikey.{#{user.name}#} </h1>
+        <section class="page-title content text-center">
+            <h1>Browse</h1>
         </section>
-        <br><br><br>
 
-        <section id="currently-watching">
+        <section id="browse">
+            <!-- <div class="row">
+                <h4 class="col-3">Browse</h4>
+            </div> -->
+
+            <div class="row">
+                <div class="col-3"><h6>By Genre</h6></div>
+                <!-- <div class="col-7 level"> -->
+                    <form class="col-8 level" method="POST", action="{{ url_for('home.genre_lookup') }}">
+                        <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
+                        <div class="col-4">
+                            <select name="Genre" class="select" placeholder="Genres">
+                                {% for genre in genres %}
+                                    <option>{{genre}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </form>
+                <!-- </div> -->
+                
+            </div>
+
+            <div class="slider center">
+                {% for movie in genre_to_movies %}
+                    <div><img src="{{ movie.movie_art_url }}"></div>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col-3"><h6>By Year</h6></div>
+                <form class="col-8 level" method="POST" action="{{ url_for('home.year_lookup') }}">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
+                    <div class="col-2"><input name="Year" type="text" placeholder="Year"></div>
+                </form>
+            </div>
+
+            <div class="slider center">
+                    {% for movie in year_to_movies %}
+                        <div><img src="{{ movie.movie_art_url }}"></div>
+                    {% endfor %}
+                </div>
+
+            <div class="row">
+                <div class="col-3"><h6>By Actor</h6></div>
+                <form class="col-8 level">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
+                    <div class="col-3 level-item"><input type="text" placeholder="First Name"></div>
+                    <div class="col-3 level-item"><input type="text" placeholder="Last Name"></div>
+                </form>
+            </div>
+
+            <div class="slider center">
+                {% for movie in actor_to_movies %}
+                    <div><img src="{{ movie.movie_art_url }}"></div>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col-3"><h6>By Director</h6></div>
+                <form class="col-8 level">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
+                    <div class="col-3 level-item"><input type="text" placeholder="First Name"></div>
+                    <div class="col-3 level-item"><input type="text" placeholder="Last Name"></div>
+                </form>
+            </div>
+
+            <div class="slider center">
+                {% for movie in director_to_movies %}
+                    <div><img src="{{ movie.movie_art_url }}"></div>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col-3"><h6>By Writer</h6></div>
+                <form class="col-8 level">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
+                    <div class="col-3 level-item"><input type="text" placeholder="First Name"></div>
+                    <div class="col-3 level-item"><input type="text" placeholder="Last Name"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- <section id="currently-watching">
             <div>
                 <h4>Currently Watching</h4>
             </div>
@@ -55,11 +138,19 @@
                     <img src="http://placehold.it/232x130?text=Movie10">
                 </div>
             </div>
+        </section>
+        <br><br>
 
-            <br><br>
-
-            <div>
-                <h4>Browse</h4>
+        <section id="browse">
+            <div class="row no-padding">
+                <div class="col-3 ignore-screen level-item"><h4>Browse</h4></div>
+                <div class="col-3 ignore-screen level-item input-control">
+                    <select class="select" placeholder="Choose one">
+                        <option>Shibe</option>
+                        <option>Doggo</option>
+                        <option>Pupper</option>
+                    </select>
+                </div>
             </div>
             <div class="slider center">
                 <div>
@@ -93,10 +184,13 @@
                     <img src="http://placehold.it/232x130?text=Movie10">
                 </div>
             </div>
-        </section>
+        </section> -->
             
         <!-- Import Slick JS -->
-        <script src="../static/libaries/slick/slick.min.js"></script>
-        <script src="../static/js/home.js"></script>
+        <script src="{{ url_for('static', filename='libraries/slick/slick.min.js')}}"></script>
+        <!-- ../static/libaries/slick/slick.min.js"></script> -->
+        <script src="{{ url_for('static', filename='js/home.js')}}"></script>
+        <!-- <script src="../static/js/home.js"></script> -->
     </body>
+    
 </html>

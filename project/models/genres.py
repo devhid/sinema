@@ -23,6 +23,9 @@ Genre = enum.Enum(
     ]
 )
 
+def get_genres():
+    return list(Genre.__members__.keys())
+
 """
 CREATE TABLE Genres(
     Genre ENUM('Action', 'Anime', 'Children & Family', 'Classics', 'Comedies', 'Cult', 'Documentaries',

@@ -10,15 +10,15 @@
     <div class="header-nav" id="header-menu">
         <div class="nav-left">
             <div class="nav-item text-center">
-                <a href="http://127.0.0.1:5000/home">Home</a>
+                <a href="/home">Home</a>
             </div>
 
             <div class="nav-item text-center">
-                <a href="http://127.0.0.1:5000/recently_added">Recently Added</a>
+                <a href="/recently_added">Recently Added</a>
             </div>
 
             <div class="nav-item text-center">
-                <a href="http://127.0.0.1:5000/new_releases">New Releases</a>
+                <a href="/new_releases">New Releases</a>
             </div>
         </div>
         <div class="nav-right">
@@ -35,4 +35,4 @@
         </div>
     </div>
 </div>
-<script src="../static/js/nav.js"></script>
+<script src="{{ url_for('static', filename='js/nav.js') }}"></script>

@@ -1,18 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo|Noto+Sans|Poppins');
 
-#welcome-back h1 {
-    
-    text-shadow: 0.3rem 0.2rem 0.3rem black;
-    font-family: "Raleway";
-    text-shadow: 0.6rem 0.5rem 0.5rem black;
-}
-
-#currently-watching {
+/* #currently-watching, #browse {
     margin: auto;
     width: 92%;
+} */
+
+.select {
+    color: black;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
-#currently-watching h4 {
+.slider {
+    margin: auto;
+    width: 92%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#browse h4 {
     font-weight: 400;
 }
 
@@ -30,4 +36,17 @@
 
 .slick-next {
     right: -35px !important;
+}
+
+.btn-accent {
+    font-family: Helvetica;
+    background-color: red;
+}
+
+.btn-accent:hover {
+    background-color: #db0000;
+}
+
+.level {
+    justify-content: left;
 }

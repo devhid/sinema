@@ -65,7 +65,7 @@ def get_movies_by_genre(genre):
         if m_movie:
             movies.add(m_movie)
 
-    return movies
+    return list(movies)
 
 def get_movies_by_year(year):
     return movie.Movie.query.filter(extract('year', movie.Movie.release_date) == year).all()

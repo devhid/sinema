@@ -1,5 +1,6 @@
 from ..extensions import db
 import enum
+import simplejson as json
 
 MaturityRating = enum.Enum(
     value = 'MaturityRating',
@@ -41,7 +42,19 @@ class Movie(db.Model):
     release_date = db.Column(db.Date())
     maturity_rating = db.Column(db.Enum(MaturityRating), server_default='NR')
     movie_art_url = db.Column(db.String(255)) 
-    genres = db.relationship('Genres', backref='movie', lazy=True) 
+    genres = db.relationship('Genres', backref='movie', lazy=True)
+
+    def serialize(self): 
+        return json.dumps({
+            'movie_id': self.movie_id,
+            'movie_name': self.movie_name,
+            'synopsis': self.synopsis,
+            'rating': self.rating,
+            'minutes_duration': self.minutes_duration,
+            'release_date': self.release_date.__str__(),
+            'maturity_rating': self.maturity_rating.__str__(),
+            'movie_art_url': self.movie_art_url
+        })
 
     def __repr__(self):
         return 'Movie( \
