@@ -1,7 +1,9 @@
 from flask import Flask, render_template
+from elasticsearch import Elasticsearch
+import os
 
 from .extensions import db
-from .views import home, signup, index, recently_added, new_releases
+from .views import home, signup, index, recently_added, new_releases, movie_info, search
 from .models import movie, person, actors, writers, directors, genres
 from .movie_data import get_movie_info
 from .controllers import movie_controller
@@ -25,9 +27,16 @@ def register_extensions(app):
     """Register Flask extensions."""
     with app.app_context():
         db.init_app(app)
+        app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+            if app.config['ELASTICSEARCH_URL'] else None
 
         # db.create_all()
         # populate_database(db)
+
+        # movie.Movie.reindex()
+        # query, total = movie.Movie.search('Iron', 1, 100)
+        # print(total)
+        # print(query.all())
 
 def register_blueprints(app):
     """Register Flask blueprints."""
@@ -36,6 +45,8 @@ def register_blueprints(app):
     app.register_blueprint(index.blueprint)
     app.register_blueprint(recently_added.blueprint)
     app.register_blueprint(new_releases.blueprint)
+    app.register_blueprint(movie_info.blueprint)
+    app.register_blueprint(search.blueprint)
 
 def register_errorhandlers(app):
     """Register error handlers."""

@@ -28,10 +28,10 @@
             <div class="row">
                 <div class="col-3"><h6>By Genre</h6></div>
                 <!-- <div class="col-7 level"> -->
-                    <form class="col-8 level" method="POST", action="{{ url_for('home.genre_lookup') }}">
-                        <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
+                    <form class="col-8 level" method="POST", action="{{ url_for('home.search_genre') }}">
+                        <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent "></div>
                         <div class="col-4">
-                            <select name="Genre" class="select" placeholder="Genres">
+                            <select name="genre" class="select" placeholder="Genres">
                                 {% for genre in genres %}
                                     <option>{{genre}}</option>
                                 {% endfor %}
@@ -44,147 +44,112 @@
 
             <div class="slider center">
                 {% for movie in genre_to_movies %}
-                    <div><img src="{{ movie.movie_art_url }}"></div>
+                    <a href="#modal-{{ movie.movie_id }}"><div><img src="{{ movie.movie_art_url }}"></div></a>
                 {% endfor %}
             </div>
 
             <div class="row">
                 <div class="col-3"><h6>By Year</h6></div>
-                <form class="col-8 level" method="POST" action="{{ url_for('home.year_lookup') }}">
-                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
-                    <div class="col-2"><input name="Year" type="text" placeholder="Year"></div>
+                <form class="col-8 level" method="POST" action="{{ url_for('home.search_year') }}">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent "></div>
+                    <div class="col-2"><input name="year" type="text" placeholder="Year"></div>
                 </form>
             </div>
 
             <div class="slider center">
-                    {% for movie in year_to_movies %}
-                        <div><img src="{{ movie.movie_art_url }}"></div>
-                    {% endfor %}
-                </div>
+                {% for movie in year_to_movies %}
+                    <a href="#modal-{{ movie.movie_id }}"><div><img src="{{ movie.movie_art_url }}"></div></a>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col-3"><h6>By Rating</h6></div>
+                <form class="col-8 level" method="POST" action="{{ url_for('home.search_rating') }}">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent "></div>
+                    <div class="col-2"><input name="rating" type="text" placeholder="Rating"></div>
+                </form>
+            </div>
+
+            <div class="slider center">
+                {% for movie in rating_to_movies %}
+                    <a href="#modal-{{ movie.movie_id }}"><div><img src="{{ movie.movie_art_url }}"></div></a>
+                {% endfor %}
+            </div>
 
             <div class="row">
                 <div class="col-3"><h6>By Actor</h6></div>
-                <form class="col-8 level">
-                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
-                    <div class="col-3 level-item"><input type="text" placeholder="First Name"></div>
-                    <div class="col-3 level-item"><input type="text" placeholder="Last Name"></div>
+                <form class="col-8 level" method="POST" action="{{ url_for('home.search_actor') }}">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent "></div>
+                    <div class="col-3 level-item"><input name="first_name" type="text" placeholder="First Name"></div>
+                    <div class="col-3 level-item"><input name="last_name" type="text" placeholder="Last Name"></div>
                 </form>
             </div>
 
             <div class="slider center">
                 {% for movie in actor_to_movies %}
-                    <div><img src="{{ movie.movie_art_url }}"></div>
+                    <a href="#modal-{{ movie.movie_id }}"><div><img src="{{ movie.movie_art_url }}"></div></a>
                 {% endfor %}
             </div>
 
             <div class="row">
                 <div class="col-3"><h6>By Director</h6></div>
-                <form class="col-8 level">
-                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
-                    <div class="col-3 level-item"><input type="text" placeholder="First Name"></div>
-                    <div class="col-3 level-item"><input type="text" placeholder="Last Name"></div>
+                <form class="col-8 level" method="POST" action="{{ url_for('home.search_director') }}">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent "></div>
+                    <div class="col-3 level-item"><input name="first_name" type="text" placeholder="First Name"></div>
+                    <div class="col-3 level-item"><input name="last_name" type="text" placeholder="Last Name"></div>
                 </form>
             </div>
 
             <div class="slider center">
                 {% for movie in director_to_movies %}
-                    <div><img src="{{ movie.movie_art_url }}"></div>
+                    <a href="#modal-{{ movie.movie_id }}"><div><img src="{{ movie.movie_art_url }}"></div></a>
                 {% endfor %}
             </div>
 
             <div class="row">
                 <div class="col-3"><h6>By Writer</h6></div>
-                <form class="col-8 level">
-                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent btn-small"></div>
-                    <div class="col-3 level-item"><input type="text" placeholder="First Name"></div>
-                    <div class="col-3 level-item"><input type="text" placeholder="Last Name"></div>
+                <form class="col-8 level" method="POST" action="{{ url_for('home.search_writer') }}">
+                    <div class="col-2 level-item"><input value="Search" type="submit" class="btn-accent"></div>
+                    <div class="col-3 level-item"><input name="first_name" type="text" placeholder="First Name"></div>
+                    <div class="col-3 level-item"><input name="last_name" type="text" placeholder="Last Name"></div>
                 </form>
             </div>
+
+            <div class="slider center">
+                {% for movie in writer_to_movies %}
+                    <a href="#modal-{{ movie.movie_id }}"><div><img src="{{ movie.movie_art_url }}"></div></a>
+                {% endfor %}
+            </div>
         </section>
 
-        <!-- <section id="currently-watching">
-            <div>
-                <h4>Currently Watching</h4>
-            </div>
-            <div class="slider center">
-                <div>
-                    <img src="../static/images/venom.jpg">
-                </div>
-                <div>
-                    <img src="../static/images/incredibles-2.jpg">
-                </div>
-                <div>
-                    <img src="../static/images/black-panther.jpg">
-                </div>
-                <div>
-                    <img src="../static/images/deadpool-2.jpg">
-                </div>
-                <div>
-                    <img src="../static/images/crazy-rich-asians.jpg">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie6">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie7">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie8">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie9">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie10">
-                </div>
-            </div>
-        </section>
-        <br><br>
+        {% for movie in genre_to_movies %}
+            {% include 'movie_modal.html' %}
+        {% endfor %}
 
-        <section id="browse">
-            <div class="row no-padding">
-                <div class="col-3 ignore-screen level-item"><h4>Browse</h4></div>
-                <div class="col-3 ignore-screen level-item input-control">
-                    <select class="select" placeholder="Choose one">
-                        <option>Shibe</option>
-                        <option>Doggo</option>
-                        <option>Pupper</option>
-                    </select>
-                </div>
-            </div>
-            <div class="slider center">
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie1">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie2">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie3">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie4">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie5">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie6">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie7">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie8">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie9">
-                </div>
-                <div>
-                    <img src="http://placehold.it/232x130?text=Movie10">
-                </div>
-            </div>
-        </section> -->
+        {% for movie in year_to_movies %}
+            {% include 'movie_modal.html' %}
+        {% endfor %}
+
+        {% for movie in rating_to_movies %}
+            {% include 'movie_modal.html' %}
+        {% endfor %}
+
+        {% for movie in actor_to_movies %}
+            {% include 'movie_modal.html' %}
+        {% endfor %}
+
+        {% for movie in director_to_movies %}
+            {% include 'movie_modal.html' %}
+        {% endfor %}
+
+        {% for movie in writer_to_movies %}
+            {% include 'movie_modal.html' %}
+        {% endfor %}
+
+        {% for movie in year_to_movies %}
+            {% include 'movie_modal.html' %}
+        {% endfor %}
+
             
         <!-- Import Slick JS -->
         <script src="{{ url_for('static', filename='libraries/slick/slick.min.js')}}"></script>

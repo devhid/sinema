@@ -1,0 +1,35 @@
+<div class="modal modal-large modal-animated-zoom-in" id="modal-{{ movie.movie_id }}">
+        <a href="#target" class="modal-overlay close-btn" aria-label="Close"></a>
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <a href="#components" class="pull-right" aria-label="Close"><span class="icon"><i class="fa fa-times"></i></span></a>
+                <div class="modal-title text-center">{{ movie.movie_name }}</div>
+            </div>
+            <div class="modal-body">
+                <!-- Modal content -->
+                <div class="row fluid-container">
+                    <div class="col-4"><img style="width: 12rem;"src="{{ movie.movie_art_url }}"></div>
+                    <div class="col-6 col-fluid">
+                        <strong>Synopsis</strong>: {{ movie.synopsis }}<br><br>
+                        <strong>Rating</strong>: {{ movie.rating }}<br>
+                        <strong>Maturity Rating</strong>: {{ movie.maturity_rating }}<br>
+                        <strong>Release Date</strong>: {{ movie.release_date }}<br>
+                        <strong>Duration</strong>: {{ movie.minutes_duration }} min.<br>
+                        <strong>Genre(s)</strong>: {{ get_genres_by_movie(movie.movie_id) }}<br><br>
+                        <strong>Director(s)</strong>: {{ get_directors_by_movie(movie.movie_id) }}<br>
+                        <strong>Writer(s)</strong>: {{ get_writers_by_movie(movie.movie_id) }}<br>
+                        <strong>Actors</strong>: {{ get_actors_by_movie(movie.movie_id) }}<br>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <!-- Rows, buttons, etc... -->
+                <!-- <div class="row">
+                    <div id="watch-now-container" class="col-3 btn-container center">
+                            <a href="/movie/{{movie.movie_id}}/"><div class="btn btn-accent">Watch Now</div></a>
+                    </div>
+                </div> -->
+            </div>
+        </div> 
+    </div>

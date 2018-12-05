@@ -1,0 +1,5 @@
+<div class="slider center">
+    {% for movie in group %}
+        <a style="width: 236px;" href="#modal-{{ movie.movie_id }}"><div><img src="{{ movie.movie_art_url }}"></div></a>
+    {% endfor %}
+</div>

@@ -11,19 +11,8 @@
     padding-bottom: 0.5rem;
 }
 
-.slider {
-    margin: auto;
-    width: 92%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
 #browse h4 {
     font-weight: 400;
-}
-
-.slick-slide {
-    max-height: 130px;
 }
 
 .slick-prev:before, .slick-next:before { 

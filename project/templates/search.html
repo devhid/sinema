@@ -1,0 +1,34 @@
+<html>
+    <head>
+        {% include 'base_head.html' %}
+        {% include 'search_head.html' %}
+        {% include 'nav_head.html'%}
+
+        <!-- Import Slick Styles -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/slick/slick.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/slick/slick-theme.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+    </head>
+
+    <body>
+        {% include 'nav.html' %}
+        
+        <section class="page-title text-center">
+            <h1>Search Results</h1>
+
+            {% for group in movie_groups %}
+                {% include 'movie_thumbnail.html' %}
+            {% endfor %}
+        </section>
+
+        {% for group in movie_groups %}
+            {% for movie in group %}
+                {% include 'movie_modal.html' %}
+            {% endfor %}
+        {% endfor %}
+
+        <!-- Import Slick JS -->
+        <script src="{{ url_for('static', filename='libraries/slick/slick.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/home.js')}}"></script>
+    </body>
+</html>

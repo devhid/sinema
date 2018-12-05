@@ -1,6 +1,8 @@
-from ..extensions import db
 import enum
 import simplejson as json
+
+from ..extensions import db
+from .searchable_mixin import SearchableMixin
 
 MaturityRating = enum.Enum(
     value = 'MaturityRating',
@@ -33,11 +35,13 @@ CREATE TABLE Movie(
 );
 """
 
-class Movie(db.Model):
+class Movie(SearchableMixin, db.Model):
+    __searchable__ = ['movie_name']
+
     movie_id = db.Column(db.Integer(), primary_key=True, nullable=False)
     movie_name = db.Column(db.String(255), nullable=False)
     synopsis = db.Column(db.String(255), server_default='No synopsis available yet for this movie.')
-    rating = db.Column(db.Float(2,1), db.CheckConstraint('rating=0.0 OR (rating >= 1.0 AND rating <= 5.0)'), default=0.0)
+    rating = db.Column(db.DECIMAL(2,1), db.CheckConstraint('rating=0.0 OR (rating >= 1.0 AND rating <= 5.0)'), default=0.0)
     minutes_duration = db.Column(db.Integer, db.CheckConstraint('minutes_duration >= 0'))
     release_date = db.Column(db.Date())
     maturity_rating = db.Column(db.Enum(MaturityRating), server_default='NR')

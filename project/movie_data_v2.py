@@ -1,8 +1,9 @@
-import re
-import urllib.request
-import json
-import requests
+from selenium import webdriver
 import time
+import requests
+from selenium.webdriver.chrome.options import Options
+import json
+import re
 
 OMDB_API_KEY='20040681'
 
@@ -12,17 +13,27 @@ month_map = {
     'Sep':'09', 'Oct':'10', 'Nov':'11', 'Dec':'12'
 }
 
-def get_movie_info(imdbid):
-    url = 'https://www.omdbapi.com/?apikey={apikey}&i={imdbid}'.format(apikey=OMDB_API_KEY, imdbid=imdbid)
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
-    }
+options = Options()
+options.set_headless(headless=True)
 
-    response = requests.get(url, headers=headers)
-    fields = response.json()
-        
+pattern = re.compile('{.+}')
+
+def get_movie_info(imdbid):
+    browser = webdriver.Chrome(options=options)
+
+    url = 'https://www.omdbapi.com/?apikey={apikey}&i={imdbid}'.format(apikey=OMDB_API_KEY, imdbid=imdbid)
+    browser.get(url)
+
+    time.sleep(0.2)
+
+    response = browser.execute_script("return document.body.innerHTML")
+    json_string = pattern.search(response).group()
+
+    fields = json.loads(json_string)
+
+    browser.quit()
+
     if fields['Response'] == 'False': return {}
-    
     if fields['Type'] != 'movie': return {}
     if fields['Poster'] == 'N/A': return {}
     if requests.get(fields['Poster']).status_code == 404: return {}
@@ -66,3 +77,5 @@ def clean_names(names):
             cleansed.append([name[0], name[len(name) - 1]])
     
     return cleansed
+
+
