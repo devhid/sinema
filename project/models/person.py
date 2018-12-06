@@ -5,6 +5,9 @@ CREATE TABLE Person(
     Id INTEGER,
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
+    IsActor BOOLEAN,
+    IsDirector BOOLEAN,
+    IsWriter BOOLEAN,
     PRIMARY KEY(Id)
 );
 """

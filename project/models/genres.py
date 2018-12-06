@@ -28,9 +28,9 @@ def get_genres():
 
 """
 CREATE TABLE Genres(
-    Genre ENUM('Action', 'Anime', 'Children & Family', 'Classics', 'Comedies', 'Cult', 'Documentaries',
-    'Dramas', 'Faith & Spirituality', 'Horror', 'Independent', 'International', 'LBGTQ', 'Music & Musicals',
-    'Romance', 'Sci-Fi & Fantasty', 'Sports', 'Stand-up Comedy', 'Thrillers'), 
+    Genre ENUM('Action', 'Adventure', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama',
+    'Family', 'Fantasy', 'Horror', 'International', 'Music and Musicals',
+    'Romance', 'Sci-Fi', 'Sport', Thriller'), 
     MovieId INTEGER,
 
     PRIMARY KEY(Genre, MovieId),
